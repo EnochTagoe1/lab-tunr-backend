@@ -3,12 +3,13 @@ const cors = require("cors");
 
 const app = express();
 
+const songController = require("./controllers/songController.js")
 app.use(cors());
 app.use(express.json());
-
+app.use("/api/songs", songController);
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Welcome to Bookmarks App");
+  res.send("Welcome to Tunr App");
 });
 
 // 404 PAGE
