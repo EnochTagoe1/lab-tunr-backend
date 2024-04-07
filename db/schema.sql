@@ -12,3 +12,15 @@ CREATE TABLE songs (
  time TEXT,
  is_favorite BOOLEAN
 );
+
+CREATE TABLE reviews (
+ id SERIAL PRIMARY KEY,
+ reviewer TEXT,
+ title TEXT,
+ content TEXT,
+ rating NUMERIC,
+ CHECK (rating >= 0 AND rating <= 5),
+ song_id INTEGER REFERENCES 
+ songs (id)
+ ON DELETE CASCADE
+);
